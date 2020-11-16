@@ -68,7 +68,8 @@ def load_directory(directory_path, target_size = (64,64)):
     targets_list = list()
 
     for count, folder in enumerate(os.istdir(directory_path)):
-        class_encoding[count] = folder
+        if os.path.isdir(os.path.join(directory_path, folder)):
+            class_encoding[count] = folder
     
     for key in class_encoding:
         class_directory = os.path.join(directory_path, class_encoding[key])
