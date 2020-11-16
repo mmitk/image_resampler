@@ -38,14 +38,15 @@ within target directory will be created if it does not already exist. Any existi
 be overwritten.
 
 ### Documentation
-```markdown
-__imresample.resample.resample_to_directory__
+
+__imresample.resample.resample_to_directory__  
 `def resample_to_directory(resampler, src, target_directory, target_size = (64,64))`
 Load images from source directory then perform sampling on an image dataset using imbalanced-learn's resamplerand rewrite to the target directory
-_Parameters_*
+_Parameters_*  
+
     resampler: object
         resampler from imblearn.under_sampling or imblearn.over_sampling
-        implementing fit_resample. Can be accessed via imresample.resample_strategies.
+        implementing fit_resample. Can be accessed via imresample.resample_strategies
 
     src: str 
         absolute path to source directory containing images to be resampled
