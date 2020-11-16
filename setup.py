@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="example-pkg-YOUR-USERNAME-HERE", # Replace with your own username
+    name="image-resampler-mmitk", 
     version="0.0.1",
-    author="Example Author",
-    author_email="author@example.com",
-    description="A small example package",
+    author="Michael Mitkov",
+    author_email="mitkovmichael@gmail.com",
+    description="Package for using imbalanced learn resample strategies on image data",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/mmitk/image_resampler",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
