@@ -15,9 +15,6 @@ def test_binary_all():
     bdln = imresample.resample.oversampling_strategies.BorderlineSMOTE()
     test_binary.test_resample_binary(bdln, 'bdlnSMOTE_BINARY')
 
-    kms = imresample.resample.oversampling_strategies.KMeansSMOTE()
-    test_binary.test_resample_binary(kms, 'KMEANSSMOTE_BINARY')
-
     sm = imresample.resample.oversampling_strategies.SMOTE()
     test_binary.test_resample_binary(sm, 'SMOTE_BINARY')
 
