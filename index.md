@@ -101,10 +101,10 @@ __Parameters__
 
    
     directory_path: str
-        absolute path to directory containing class folder (one folder per class) where each class            folder contains images belonging to that class
+        absolute path to directory containing class folder (one folder per class) where each class   folder contains images belonging to that class
     
     target_size: tuple, optional (default=(64,64))
-        tuple (width, height), where width is the desired target width, and height is desired target         height function will resize each loaded image to this size
+        tuple (width, height), where width is the desired target width, and height is desired target  height function will resize each loaded image to this size
 
     flatten: boolean, optional (default=False)
         dictates whether reshaping from 4 dimensional to 2 dimensional array should occur.
