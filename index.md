@@ -1,7 +1,7 @@
 ## Image-resampler
 
 This toolkit allows you to resample a directory containing an imbalanced image dataset using resampling strategies from
-imbalanced-learn (https://imbalanced-learn.readthedocs.io/en/stable/index.html "Imbalanced-learn Homepage")
+imbalanced-learn (https://imbalanced-learn.readthedocs.io/en/stable/index.html)
 
 Leverages both imbalanced-learn and opencv-python to create a resampled balanced image dataset from an imbalanced image dataset to help with machine learning and deep learning.
 
