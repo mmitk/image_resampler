@@ -45,19 +45,19 @@ Load images from source directory then perform sampling on an image dataset usin
   
 __Parameters__  
 
-    resampler: object
-        resampler from imblearn.under_sampling or imblearn.over_sampling
-        implementing fit_resample. Can be accessed via imresample.resample_strategies
+    resampler: object  
+        resampler from imblearn.under_sampling or imblearn.over_sampling  
+        implementing fit_resample. Can be accessed via imresample.resample_strategies  
 
     src: str 
-        absolute path to source directory containing images to be resampled
-        images must be sorted into seperate folders designating the class
+        absolute path to source directory containing images to be resampled  
+        images must be sorted into seperate folders designating the class  
         
     target_directory: str
-        absolute path of directory into which resampled resampled image set is written.
+        absolute path of directory into which resampled resampled image set is written.  
     
     target_size: tuple 
-        tuple (width, height), where width is the desired width, and height is desired height
+        tuple (width, height), where width is the desired width, and height is desired height  
  __Returns__
         
         None  
@@ -69,8 +69,8 @@ Perform resampling on a given numpy array of images and targets (classes), retur
 __Parameters__  
 
     resampler: object
-        resampler from imblearn.under_sampling or imblearn.over_sampling
-        implementing fit_resample. Can be accessed via imresample.resample_strategies.
+        resampler from imblearn.under_sampling or imblearn.over_sampling  
+        implementing fit_resample. Can be accessed via imresample.resample_strategies.  
     
     images_array: {array-like, sparse matrix}, shape (n_samples, n_images)
             Data array.
@@ -79,19 +79,19 @@ __Parameters__
             Target array.
     
     x_reshape: boolean, optional (default=False)
-        dictates whether reshaping of images array from 4 dimensions to 2 dimensions should occur
-        (for imblearn resampler images array must be <=2 dimensions)
+        dictates whether reshaping of images array from 4 dimensions to 2 dimensions should occur  
+        (for imblearn resampler images array must be <=2 dimensions)  
     
     y_reshape: boolean, optional (default=False)
-        dictates whether reshaping of targets array should take place
-        shape must be (n_samples,)
+        dictates whether reshaping of targets array should take place  
+        shape must be (n_samples,)  
  __Returns__
         
-        X_resampled : {ndarray, sparse matrix}, shape (n_samples_new, n_images_new)
+        X_resampled : {ndarray, sparse matrix}, shape (n_samples_new, n_images_new)  
             The array containing the resampled data.
 
-        y_resampled : ndarray, shape (n_samples_new,)
-            The corresponding label of `X_resampled`
+        y_resampled : ndarray, shape (n_samples_new,)  
+            The corresponding label of `X_resampled`  
   
 ### imresample.resample.load_directory
 `def load_directory(directory_path, target_size = (64,64), flatten = False):`
@@ -101,7 +101,7 @@ __Parameters__
 
    
     directory_path: str
-        absolute path to directory containing class folder (one folder per class) where each class           folder contains images belonging to that class
+        absolute path to directory containing class folder (one folder per class) where each class            folder contains images belonging to that class
     
     target_size: tuple, optional (default=(64,64))
         tuple (width, height), where width is the desired target width, and height is desired target         height function will resize each loaded image to this size
