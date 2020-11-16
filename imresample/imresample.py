@@ -9,7 +9,7 @@ import imblearn as imb
 
 resample_strategies = imb
 
-def resample_to_directory(resampler, src, target_directory, target_size):
+def resample_to_directory(resampler, src, target_directory, target_size = (64,64)):
     """Perform sampling on an image dataset using imbalanced-learn's resampler
     and rewrite to the target directory
 
@@ -23,10 +23,7 @@ def resample_to_directory(resampler, src, target_directory, target_size):
     src: str or tuple
         if str absolute path to source directory containing images to be resampled
             images must be sorted into seperate folders designating the class
-        if tuple then (images array, targets array) 
-            images array is type ndarray with with dimension == 2
-            targets array is type ndarray with dimension == 1
-
+        
     target_directory: str
         absolute path of directory into which resampled resampled image set is written.
     
@@ -34,20 +31,86 @@ def resample_to_directory(resampler, src, target_directory, target_size):
         tuple (width, height), where width is the desired width, and height is desired height
 
     """
-    
-    if isinstance(src,str): 
-        images_arr, targets = load_directory(src)
-    elif isinstance(src, tuple):
-        #TODO check ndarray dimensions
-        if not isinstance(src[0],np.ndarray):
-            raise inputException('if passing tuple must be: (ndarray, ndarray)')
-        images_arr = src[0]
-        targets = src[1]
-    
-    
+     
 
-def resample_image_set(resampler, src, target_size = None):
+    images_arr, targets, class_encoding = load_directory(src, target_size)
 
-def load_directory(directory_path, target_size = None):
+    images_arr.reshape(images_arr.shape[0],images_arr.shape[1]*images_arr.shape[2]*images_arr.shape[3])
+    targets = targets.reshape(-1,1)
 
-def write_to_directory(image_array)
+    X, y = resampler.fit_resample(images_arr, targets)
+
+    X = X.reshape(X.shape[0], target_size[0], target_size[1], 3)
+    y = y.reshape(1,-1)
+
+    write_to_directory(X, y, target_directory, class_encoding)
+
+
+
+def resample_image_set(resampler, images_array, targets_array, x_reshape = False, y_reshape = False):
+    """
+    """
+    if x_reshape:
+        images_array = images_array.reshape(images_arrayshape[0], images_array[1]*images_array.shape[2]*images_array.shape[3])
+    if y_reshape:
+        targets_array = targets_array.reshape(-1,1)
+
+    return resampler.fit_resample(images_array, targets_array)
+
+
+def load_directory(directory_path, target_size = (64,64)):
+
+    print('\n[LOADING IMAGES FROM DIRECTORY]\n')
+
+
+    class_encoding = dict()
+    images_list = list()
+    targets_list = list()
+
+    for count, folder in enumerate(os.istdir(directory_path)):
+        class_encoding[count] = folder
+    
+    for key in class_encoding:
+        class_directory = os.path.join(directory_path, class_encoding[key])
+        for image in os.listdir(class_directory)
+            print('.')
+            image = os.path.join(class_directory, image)
+            loaded_image = cv2.imread(image)
+            loaded_image = loaded_image.resize(loaded_image, target_size, interpolation=cv2.INTER_CUBIC)
+            images_list.append(loaded_image)
+            targets_list.append(key)
+    
+    print()
+
+    return np.asarray(images_list), np.asarray(targets_list), class_encoding
+
+
+
+def write_to_directory(image_array, target_array, target_directory, class_encoding = None, x_reshape = False, y_reshape = False, target_size = None):
+    if not os.path.isdir(target_directory):
+        os.mkdir(target_directory)
+
+    if reshape:
+        image_arry = image_array.reshape(image_array.shape[0], target_size[0], target_size[1], 3)
+        target_array = target_array.reshape(-1,1)
+    
+    for count, img in enumerate(image_array):
+        if class_encoding is not None:
+            class_directory = os.path.join(target_directory, class_encoding[target_array[0][count]])
+        else:
+            class_directory = os.path.join(target_directory, str(target_array[0][count]))
+        
+        if not os.path.isdir(class_directory):
+            os.mkdir(class_directory)
+        
+        image_path = os.path.join(class_directory, 'img{}'.format(count))
+
+        try:
+            cv2.imwrite(image_path, img)
+        except Exception:
+            continue
+
+
+
+        
+
