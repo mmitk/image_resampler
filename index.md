@@ -39,7 +39,7 @@ be overwritten.
 
 ### Documentation
 
-#### imresample.resample.resample_to_directory 
+### imresample.resample.resample_to_directory 
 `def resample_to_directory(resampler, src, target_directory, target_size = (64,64))`
 Load images from source directory then perform sampling on an image dataset using imbalanced-learn's resamplerand rewrite to the target directory  
   
@@ -62,7 +62,7 @@ __Parameters__
         
         None  
           
-#### imresample.resample.resample_image_set 
+### imresample.resample.resample_image_set 
 `def resample_image_set(resampler, images_array, targets_array, x_reshape = False, y_reshape = False):`
 Perform resampling on a given numpy array of images and targets (classes), return resampled arrays    
   
@@ -93,7 +93,7 @@ __Parameters__
         y_resampled : ndarray, shape (n_samples_new,)
             The corresponding label of `X_resampled`
   
-#### imresample.resample.load_directory
+### imresample.resample.load_directory
 `def load_directory(directory_path, target_size = (64,64), flatten = False):`
 Loads directory into two numpy ndarray's and class encoding. One ndarray will hold the loaded images, one will hold the corresponding classes. Class encoding is a dict which stores the true class names in correlation to the returned ones.  
   
@@ -119,7 +119,7 @@ __Parameters__
             The corresponding label of `X_resampled`
 
    
-  #### imresample.resample.write_to_directory
+  ### imresample.resample.write_to_directory
 `def load_directory(directory_path, target_size = (64,64), flatten = False):`
 Write a given image and target array to a given directory, a new folder is created for each class if one does not exist.   
   
