@@ -41,8 +41,8 @@ be overwritten.
 
 __imresample.resample.resample_to_directory__  
 `def resample_to_directory(resampler, src, target_directory, target_size = (64,64))`
-Load images from source directory then perform sampling on an image dataset using imbalanced-learn's resamplerand rewrite to the target directory
-_Parameters_*  
+Load images from source directory then perform sampling on an image dataset using imbalanced-learn's resamplerand rewrite to the target directory  
+_Parameters_  
 
     resampler: object
         resampler from imblearn.under_sampling or imblearn.over_sampling
