@@ -38,6 +38,7 @@ within target directory will be created if it does not already exist. Any existi
 be overwritten.
 
 ### Documentation
+```markdown
 __imresample.resample.resample_to_directory__
 `def resample_to_directory(resampler, src, target_directory, target_size = (64,64))`
 Load images from source directory then perform sampling on an image dataset using imbalanced-learn's resamplerand rewrite to the target directory
@@ -54,4 +55,4 @@ _Parameters_*
         absolute path of directory into which resampled resampled image set is written.
     
     target_size: tuple 
-        tuple (width, height), where width is the desired width, and height is desired height
+        tuple (width, height), where width is the desired width, and height is desired height```
