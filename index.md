@@ -154,7 +154,7 @@ __Parameters__
             If image array is of shape (n_samples,) then this should be true
 
         target_size: tuple 
-            tuple (width, height), where width is the desired image width, and height is desired                 image height
+            tuple (width, height), where width is the desired image width, and height is desired image height  
  __Returns__
         
         None
