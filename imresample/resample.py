@@ -1,3 +1,6 @@
+# Author: Michael Mitkov
+# Licencse: MIT
+
 import numpy as np
 import cv2
 import os
@@ -108,6 +111,14 @@ def load_directory(directory_path, target_size = (64,64), flatten = False):
         dictates whether reshaping from 4 dimensional to 2 dimensional array should occur.
         Note: 
         2D array is required for resampling
+    
+    Returns
+    -------
+        X_resampled : {ndarray, sparse matrix}, shape (n_samples_new, n_images_new)
+            The array containing the resampled data.
+
+        y_resampled : ndarray, shape (n_samples_new,)
+            The corresponding label of `X_resampled`
     """
 
     class_encoding = dict()
